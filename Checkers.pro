@@ -27,11 +27,14 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    player.cpp
+    player.cpp \
+    piece.cpp
 
 HEADERS += \
         mainwindow.h \
-    player.h
+    player.h \
+    piece.h \
+    color.h
 
 FORMS += \
         mainwindow.ui
