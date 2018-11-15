@@ -28,13 +28,15 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     player.cpp \
-    piece.cpp
+    piece.cpp \
+    checkerboard.cpp
 
 HEADERS += \
         mainwindow.h \
     player.h \
     piece.h \
-    color.h
+    color.h \
+    checkerboard.h
 
 FORMS += \
         mainwindow.ui
