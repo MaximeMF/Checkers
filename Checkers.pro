@@ -36,7 +36,8 @@ HEADERS += \
     player.h \
     piece.h \
     color.h \
-    checkerboard.h
+    checkerboard.h \
+    king.h
 
 FORMS += \
         mainwindow.ui

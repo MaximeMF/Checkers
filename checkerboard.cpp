@@ -1,5 +1,4 @@
 #include "checkerboard.h"
-#include "color.h"
 #include <iostream>
 
 checkerboard::checkerboard()
@@ -23,9 +22,8 @@ checkerboard::checkerboard()
 
 void checkerboard::newKing(int x, int y)
 {
-    //~board[x][y];
-    //King king=new king(color);
-    //board[x][y]=king;
+    Color c = board[x][y]->getCouleur();
+    board[x][y]=new king(c);
 }
 
 void checkerboard::destroy(int x, int y)

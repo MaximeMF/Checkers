@@ -5,10 +5,11 @@
 
 class Piece
 {
+    Color color;
 public:
     Piece(Color);
     ~Piece();
-    void getCouleur();
+    Color getCouleur();
 };
 
 #endif // PIECE_H

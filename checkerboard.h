@@ -1,6 +1,8 @@
 #ifndef CHECKERBOARD_H
 #define CHECKERBOARD_H
 #include "piece.h"
+#include "color.h"
+#include "king.h"
 
 class checkerboard
 {
