@@ -2,9 +2,10 @@
 #define KING_H
 #include "piece.h"
 
-class king : public Piece
+class King : public Piece
 {
 public:
-    king(Color color) : Piece(color){}
+    King(Color c);
 };
+
 #endif // KING_H

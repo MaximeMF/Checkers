@@ -29,7 +29,8 @@ SOURCES += \
         mainwindow.cpp \
     player.cpp \
     piece.cpp \
-    checkerboard.cpp
+    checkerboard.cpp \
+    king.cpp
 
 HEADERS += \
         mainwindow.h \

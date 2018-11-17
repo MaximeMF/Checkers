@@ -4,15 +4,15 @@
 #include "color.h"
 #include "king.h"
 
-class checkerboard
+class Checkerboard
 {
-    Piece *board[10][10];
 public:
-    checkerboard();
-
+    Checkerboard();
     void newKing(int x, int y);
     void destroy(int x, int y);                 //void destroy(piece piece)
     void move(int x, int y, int dx, int dy);
+private:
+    Piece *board[10][10];
 };
 
 

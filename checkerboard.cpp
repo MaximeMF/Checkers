@@ -1,7 +1,7 @@
 #include "checkerboard.h"
 #include <iostream>
 
-checkerboard::checkerboard()
+Checkerboard::Checkerboard() // A REVOIR
 {
     int i=0;
     int j=0;
@@ -20,18 +20,19 @@ checkerboard::checkerboard()
     }
 }
 
-void checkerboard::newKing(int x, int y)
+void Checkerboard::newKing(int x, int y)
 {
-    Color c = board[x][y]->getCouleur();
-    board[x][y]=new king(c);
+    Color c = board[x][y]->getColor();
+    board[x][y]=new King(c);
 }
 
-void checkerboard::destroy(int x, int y)
+void Checkerboard::destroy(int x, int y)
 {
   // board[x][y]->~Piece();
    board[x][y]=nullptr;
 }
-void checkerboard::move(int x, int y, int dx, int dy)
+
+void Checkerboard::move(int x, int y, int dx, int dy)
 {
    /* if(board[dx][dy]!=nullptr)
     {
