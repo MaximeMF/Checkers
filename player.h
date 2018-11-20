@@ -7,10 +7,10 @@ class Player
 public:
     Player(Color);
     Color getColor();
-    int getScore();
+    int getPiecesNumber();
 private:
     const Color COLOR;
-    int score;
+    int piecesNumber;
 };
 
 #endif // PLAYER_H

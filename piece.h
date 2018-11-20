@@ -8,6 +8,7 @@ public:
     Piece(Color);
     ~Piece();
     Color getColor();
+
 protected:
     const Color COLOR;
 };

@@ -1,22 +1,30 @@
 #include "checkerboard.h"
 #include <iostream>
 
-Checkerboard::Checkerboard() // A REVOIR
+using namespace std;
+
+Checkerboard::Checkerboard()
 {
-    int i=0;
-    int j=0;
+    init();
+}
+
+void Checkerboard::init() {
     Color color = white;
-    while(i<10){
-        j=i%2;              /* On veut placer les pieces diagonalement*/
-        if(i==5){           /* On veut placer les pieces sur les 4 premières lignes de chaque côté*/
-            i=i+2;
+    for(int j=0; j<10; j++) {
+        if(j==4) {
+            j=j+2;
             color = black;
         }
-        while(j<10){
-            board[i][j]= new Piece(color);
-            j=j+1;
+        for(int i=0; i<10; i++) {
+            if(j%2==0) {
+                if(i%2==0)
+                    board[i][j] = new Piece(color);
+            }
+            else {
+                if(i%2==1)
+                    board[i][j] = new Piece(color);
+            }
         }
-        i=i+1;
     }
 }
 

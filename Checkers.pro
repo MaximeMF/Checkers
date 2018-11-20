@@ -30,7 +30,8 @@ SOURCES += \
     player.cpp \
     piece.cpp \
     checkerboard.cpp \
-    king.cpp
+    king.cpp \
+    game.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     piece.h \
     color.h \
     checkerboard.h \
-    king.h
+    king.h \
+    game.h
 
 FORMS += \
         mainwindow.ui

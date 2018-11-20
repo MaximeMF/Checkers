@@ -2,7 +2,7 @@
 
 Player::Player(Color c) : COLOR(c)
 {
-    score = 0;
+    piecesNumber = 20;
 }
 
 Color Player::getColor()
@@ -10,7 +10,7 @@ Color Player::getColor()
     return COLOR;
 }
 
-int Player::getScore()
+int Player::getPiecesNumber()
 {
-    return score;
+    return piecesNumber;
 }
