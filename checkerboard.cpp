@@ -1,14 +1,16 @@
 #include "checkerboard.h"
 #include <iostream>
 
-using namespace std;
-
 Checkerboard::Checkerboard()
 {
     init();
 }
 
-void Checkerboard::init() {
+void Checkerboard::init()
+{
+    for(int i=0; i<10; i++)
+        for(int j=0; j<10; j++)
+            board[i][j] = nullptr;
     Color color = white;
     for(int j=0; j<10; j++) {
         if(j==4) {
@@ -28,24 +30,54 @@ void Checkerboard::init() {
     }
 }
 
-void Checkerboard::newKing(int x, int y)
+bool Checkerboard::canPromote(int x, int y)
 {
+    bool ret;
     Color c = board[x][y]->getColor();
-    board[x][y]=new King(c);
+    if(c == white)
+        y == 9 ? ret=true : ret=false;
+    else
+        y == 0 ? ret=true : ret=false;
+    return ret;
 }
 
-void Checkerboard::destroy(int x, int y)
+void Checkerboard::promotion(int x, int y)
 {
-  // board[x][y]->~Piece();
-   board[x][y]=nullptr;
+    Color c = board[x][y]->getColor();
+    delete board[x][y];
+    board[x][y] = new King(c);
 }
+
+/*bool Checkerboard::canMove(int x, int y, int dx, int dy)
+{
+    bool ret = false;
+    if(dynamic_cast<King*>(board[x][y])) {
+        if(abs(dx-x)==abs(dy-y)) {
+
+        }
+    }
+    else {
+        if(dy-y==1 && abs(dx-x)==1)
+            if(board[dx][dy] != nullptr)
+                ret = true;
+    }
+    return ret;
+}*/
 
 void Checkerboard::move(int x, int y, int dx, int dy)
 {
-   /* if(board[dx][dy]!=nullptr)
-    {
-        board[dx][dy]->~Piece();
-    }*/
-    board[dx][dy]=board[x][y];
-    board[x][y]=nullptr;
+    board[dx][dy] = board[x][y];
+    delete board[x][y];
+    board[x][y] = nullptr;
+}
+
+void Checkerboard::remove(int x, int y)
+{
+    delete board[x][y];
+    board[x][y] = nullptr;
+}
+
+bool Checkerboard::isPiece(int x, int y)
+{
+    return (board[x][y] != nullptr);
 }

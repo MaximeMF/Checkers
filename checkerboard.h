@@ -8,9 +8,12 @@ class Checkerboard
 {
 public:
     Checkerboard();
-    void newKing(int x, int y);
-    void destroy(int x, int y);                 //void destroy(piece piece)
+    bool isPiece(int x, int y);
+    bool canPromote(int x, int y);
+    void promotion(int x, int y);
+    bool canMove(int x, int y, int dx, int dy);
     void move(int x, int y, int dx, int dy);
+    void remove(int x, int y);
 private:
     Piece* board[10][10];
     void init();

@@ -9,9 +9,11 @@ public:
     Game();
     void play();
 private:
-    Player player1;
-    Player player2;
+    const Player player1;
+    const Player player2;
+    const Player* currentPlayer;
     Checkerboard checkerboard;
+    void changeTurn();
 };
 
 #endif // GAME_H

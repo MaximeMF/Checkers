@@ -6,7 +6,7 @@ class Piece
 {
 public:
     Piece(Color);
-    ~Piece();
+    virtual ~Piece();
     Color getColor();
 
 protected:
