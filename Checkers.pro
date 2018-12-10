@@ -31,7 +31,11 @@ SOURCES += \
     piece.cpp \
     checkerboard.cpp \
     king.cpp \
-    game.cpp
+    game.cpp \
+    menu.cpp \
+    damier.cpp \
+    square.cpp \
+    mainwin.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +44,11 @@ HEADERS += \
     color.h \
     checkerboard.h \
     king.h \
-    game.h
+    game.h \
+    menu.h \
+    damier.h \
+    square.h \
+    mainwin.h
 
 FORMS += \
         mainwindow.ui
@@ -49,3 +57,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    TestForm.ui.qml \
+    Test.qml

@@ -6,10 +6,14 @@ MainWindow::MainWindow(QWidget *parent) :
        ui(new Ui::MainWindow)
     {
        ui->setupUi(this);
-       scene = new QGraphicsScene(this);
-       //scene->setSceneRect(QRectF(0,0,400,400));
+ /*      scene = new QGraphicsScene(this);
        ui->graphicsView->setScene(scene);
-       fond = scene->addPixmap(QPixmap("backgroundBoard.png"));
+       fond = scene->addPixmap(QPixmap("backgroundBoard.png"));*/
+       //damier=fond;
+     //  bouton1 = new QPushButton("quit",this);
+       //layout1 = new QGridLayout;
+       //layout1->addWidget(damier);
+
     }
 
 

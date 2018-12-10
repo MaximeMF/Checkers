@@ -6,46 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>961</width>
-    <height>613</height>
+    <width>1050</width>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>971</width>
-      <height>581</height>
+      <x>19</x>
+      <y>10</y>
+      <width>1011</width>
+      <height>621</height>
      </rect>
     </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-     <widget class="QGraphicsView" name="graphicsView">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>20</y>
-        <width>841</width>
-        <height>501</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
-    </widget>
+    <layout class="QGridLayout" name="gridLayout"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -53,7 +31,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>961</width>
+     <width>1050</width>
      <height>21</height>
     </rect>
    </property>

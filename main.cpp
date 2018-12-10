@@ -1,13 +1,18 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include "checkerboard.h"
+#include "menu.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
     MainWindow w;
-    w.show();
+    Menu menu;
+    menu.show();
+  //  w.show();
     Checkerboard c;
 
-    return a.exec();
+    return app.exec();
 }
+
+
