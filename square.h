@@ -16,7 +16,9 @@ class Square : public QLabel {
     Q_OBJECT
 
     public:
-        explicit Square(QWidget* parent = Q_NULLPTR, Qt::WindowFlags f = Qt::WindowFlags());
+        int posX;
+        int posY;
+        explicit Square(QWidget* parent = Q_NULLPTR, int posX=-1, int posY=-1);
         ~Square();
 
     signals:

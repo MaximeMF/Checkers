@@ -13,7 +13,7 @@ class QMenuBar;
 class QPushButton;
 class QTextEdit;
 
-class Damier : public QDialog
+class Damier : public QMainWindow
 {
     Q_OBJECT
 

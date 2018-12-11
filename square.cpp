@@ -1,6 +1,6 @@
 #include "square.h"
-Square::Square(QWidget* parent, Qt::WindowFlags f)
-    : QLabel(parent) {
+Square::Square(QWidget* parent,int posX, int posY)
+    : QLabel(parent) { this->posX=posX; this->posY=posY;
 
 }
 

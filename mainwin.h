@@ -1,4 +1,4 @@
-#ifndef MAINWIN_H
+/*#ifndef MAINWIN_H
 
 #define MAINWIN_H
 #include <QMainWindow>
@@ -51,4 +51,4 @@ private:
 
 
 
-#endif // MAINWIN_H
+#endif // MAINWIN_H*/

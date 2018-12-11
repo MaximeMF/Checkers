@@ -1,4 +1,4 @@
-#include "mainwin.h"
+/*#include "mainwin.h"
 
 #include "mainwin.h"
 
@@ -9,7 +9,6 @@
 mainwin::mainwin(QWidget *parent) :
 
    QMainWindow(parent),
-
    ui(new Ui::mainwin)
 
 {
@@ -71,3 +70,4 @@ mainwin::~mainwin()
    delete ui;
 
 }
+*/
