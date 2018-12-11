@@ -26,7 +26,7 @@ private:
 
     QMenu *fileMenu;
     QAction *exitAction;
-    QGridLayout *layout;
+    QHBoxLayout *layout;
 };
 
 #endif // DAMIER_H

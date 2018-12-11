@@ -11,7 +11,7 @@
 #include <QTimer>
 
 
-class Square : public QLabel {
+class Square : public QPushButton {
 
     Q_OBJECT
 
