@@ -11,14 +11,14 @@
 #include <QTimer>
 
 
-class Square : public QLabel {
+class Square : public QPushButton {
 
     Q_OBJECT
 
     public:
         int posX;
         int posY;
-        explicit Square(QWidget* parent = Q_NULLPTR, int posX=-1, int posY=-1);
+        Square(QWidget* parent, int posX=-1, int posY=-1);
         ~Square();
 
     signals:

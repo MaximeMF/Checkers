@@ -11,8 +11,8 @@ int main(int argc, char *argv[])
    // Menu menu;
   //  menu.show();
   //  w.show();
-    Damier *d = new Damier();
-    d->show();
+    Damier d;
+    d.show();
     Checkerboard c;
 
     return app.exec();

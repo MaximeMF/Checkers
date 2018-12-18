@@ -2,44 +2,56 @@
 #include <iostream>
 #include <iostream>
 #include "damier.h"
-#include "square.h"
 
-Damier::Damier() : QMainWindow()
+
+Damier::Damier() :
+QDialog()
 {
-    this->setFixedSize(800,800);
-    layout = new QGridLayout;
-    this->setLayout(layout);
-    this->createBoard();
-
+    //this->setFixedSize(800,800);
+    resize(800,800);
+   // mainlayout = new Qmainlayout(this);
+    mainlayout = new QGridLayout(this);
+    mainlayout->setObjectName(QStringLiteral("layout"));
+    mainlayout->setContentsMargins(10,10,10,10);
+    mainlayout->setColumnMinimumWidth(1,80);
+    mainlayout->setColumnMinimumWidth(5,80);
+    mainlayout->setSpacing(0);
+    mainlayout->setRowMinimumHeight(1,80);
+    mainlayout->setRowStretch(1,1);
+    mainlayout->setColumnStretch(1,1);
+    //layout->setMinimumSize(500,500);
+    //layout->setMaximumSize(800,800);
+    //setLayout(layout);
+    createBoard();
 }
 
 void Damier::createBoard()
 {
-
-    int i=0;
-    int j=0;
-    while(i<10){
-        layout->setRowStretch(i,80);
+    Square *square;
+  
+ int i=0;
+ int j=0;
+   while(i<10){
         j=0;
-        while(j<10){
-            layout->setColumnStretch(j,80);
-            Square *square = new Square(this,i,j);
-            QPixmap *pixmap_img;
-            if((i+j)%2==1){
-                pixmap_img = new QPixmap("WhiteS.png");
+       while(j<10)
+       {
+            square = new Square(this,0,0);
+            square->setMinimumSize(80,80);
+            square->setMaximumSize(80,80);
+            QIcon *icon;
+            if((i+j)%2==1) {
+               icon = new QIcon("BlackS.png");
             }
             else{
-                pixmap_img = new QPixmap("BlackS.png");
+                icon = new QIcon("WhiteS.png");
             }
-            square->setPixmap(*pixmap_img);
-            square->setFixedSize(80,80);
-            std::cout << i <<"ddd"<< j << std::endl;
-            this->layout->addWidget(square,i,j);
-             std::cout << "posX : " <<square->posX<< "and posY : "<< square->posY << std::endl;
-            //square->show();
+            square->setIcon(*icon);
+            square->setIconSize(QSize(80,80));
+            square->show();
+            mainlayout->addWidget(square,i,j, Qt::AlignCenter);
+            mysquares.push_back(square);
             j=j+1;
         }
         i=i+1;
     }
-
 }

@@ -2,6 +2,9 @@
 #define DAMIER_H
 #include <QDialog>
 #include <QtWidgets>
+#include <vector>
+#include "square.h"
+#include "ui_mainwindow.h"
 
 class QAction;
 class QDialogButtonBox;
@@ -13,7 +16,9 @@ class QMenuBar;
 class QPushButton;
 class QTextEdit;
 
-class Damier : public QMainWindow
+using namespace std;
+
+class Damier : public QDialog
 {
     Q_OBJECT
 
@@ -26,7 +31,8 @@ private:
 
     QMenu *fileMenu;
     QAction *exitAction;
-    QGridLayout *layout;
+    QGridLayout *mainlayout;
+    vector<Square*> mysquares;
 };
 
 #endif // DAMIER_H
