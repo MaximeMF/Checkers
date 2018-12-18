@@ -31,8 +31,12 @@ private:
 
     QMenu *fileMenu;
     QAction *exitAction;
+<<<<<<< HEAD
     QGridLayout *mainlayout;
     vector<Square*> mysquares;
+=======
+    QHBoxLayout *layout;
+>>>>>>> e843a57bdef8ad7e164af1829a698dcca97b0677
 };
 
 #endif // DAMIER_H
