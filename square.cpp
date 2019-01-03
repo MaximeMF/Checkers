@@ -7,5 +7,11 @@ Square::Square(QWidget* parent,int posX, int posY)
 Square::~Square() {}
 
 void Square::mousePressEvent(QMouseEvent* event) {
-    emit clicked();
+    emit clicked(posX, posY);
+
+}
+
+void Square::setPos(int x, int y){
+    this->posX=x;
+    this->posY=y;
 }

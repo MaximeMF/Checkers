@@ -24,8 +24,17 @@ class Damier : public QDialog
 
 public:
     Damier();
+    Square getSquare();
+    void setSquare(int i, int j, QString iconName);
+
+public slots:
+    void clickedDamier(int x, int y);
+
+signals:
+    void clicked(int x, int y);
 
 private:
+    QIcon *icon;
     void createBoard();
 
 

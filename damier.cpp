@@ -1,26 +1,25 @@
 #include <QtWidgets>
 #include <iostream>
-#include <iostream>
 #include "damier.h"
 
 
 Damier::Damier() :
 QDialog()
 {
-    //this->setFixedSize(800,800);
-    resize(800,800);
+    //this->setFixedSize(850,850);
+    resize(850,850);
    // mainlayout = new Qmainlayout(this);
     mainlayout = new QGridLayout(this);
     mainlayout->setObjectName(QStringLiteral("layout"));
     mainlayout->setContentsMargins(10,10,10,10);
-    mainlayout->setColumnMinimumWidth(1,80);
-    mainlayout->setColumnMinimumWidth(5,80);
+    mainlayout->setColumnMinimumWidth(1,85);
+    mainlayout->setColumnMinimumWidth(5,85);
     mainlayout->setSpacing(0);
-    mainlayout->setRowMinimumHeight(1,80);
+    mainlayout->setRowMinimumHeight(1,85);
     mainlayout->setRowStretch(1,1);
     mainlayout->setColumnStretch(1,1);
     //layout->setMinimumSize(500,500);
-    //layout->setMaximumSize(800,800);
+    //layout->setMaximumSize(850,850);
     //setLayout(layout);
     createBoard();
 }
@@ -36,22 +35,37 @@ void Damier::createBoard()
        while(j<10)
        {
             square = new Square(this,0,0);
-            square->setMinimumSize(80,80);
-            square->setMaximumSize(80,80);
-            QIcon *icon;
+            square->setMinimumSize(85,85);
+            square->setMaximumSize(85,85);
             if((i+j)%2==1) {
-               icon = new QIcon("WhiteS.png");
+               icon = new QIcon("caseNoire.png");
             }
             else{
-                icon = new QIcon("BlackS.png");
+                icon = new QIcon("caseBlanche.png");
             }
             square->setIcon(*icon);
-            square->setIconSize(QSize(80,80));
+            square->setIconSize(QSize(85,85));
             square->show();
             mainlayout->addWidget(square,i,j, Qt::AlignCenter);
+            square->setPos(i,j);
+            connect(square, SIGNAL(clicked(int x, int y)), this, SLOT(clickedDamier(int x, int y)));
             mysquares.push_back(square);
             j=j+1;
         }
         i=i+1;
     }
+   /*setSquare(1,1,"caseBlanche.png");*/
 }
+
+void Damier::clickedDamier(int x, int y){
+    emit clicked(x,y);
+}
+/*void Damier::setSquare(int i,int j, QString nameIcon)
+{
+    icon = new QIcon(nameIcon);
+    Square *square;
+    QWidget *lay;
+    lay =mainlayout->itemAtPosition(i,j)->widget();
+    square = mainlayout->takeAt(mainlayout->indexOf(lay));
+
+}*/

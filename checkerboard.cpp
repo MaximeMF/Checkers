@@ -36,7 +36,7 @@ bool Checkerboard::canPromote(int x, int y)
     Color c = board[x][y]->getColor();
     if(c == white)
         y == 9 ? ret=true : ret=false;
-    else
+    else //if(c == black) ?
         y == 0 ? ret=true : ret=false;
     return ret;
 }

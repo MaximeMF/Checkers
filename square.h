@@ -20,9 +20,11 @@ class Square : public QPushButton {
         int posY;
         Square(QWidget* parent, int posX=-1, int posY=-1);
         ~Square();
+        void setPos(int x, int y);
+
 
     signals:
-        void clicked();
+        void clicked(int posX, int posY);
 
     protected:
         void mousePressEvent(QMouseEvent* event);
