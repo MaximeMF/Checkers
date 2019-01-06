@@ -14,7 +14,7 @@ class Game : public QObject
     Q_OBJECT
 
     public:
-        Game();
+        Game(Damier *damier);
         void play();
 
     public slots:

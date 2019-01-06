@@ -35,7 +35,8 @@ SOURCES += \
     menu.cpp \
     damier.cpp \
     square.cpp \
-    mainwin.cpp
+    mainwin.cpp \
+    wrongcase.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -48,7 +49,8 @@ HEADERS += \
     menu.h \
     damier.h \
     square.h \
-    mainwin.h
+    mainwin.h \
+    wrongcase.h
 
 FORMS += \
         mainwindow.ui

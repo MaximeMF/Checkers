@@ -49,6 +49,7 @@ void Menu::createHorizontalGroupBox()
         layout->addWidget(buttons[3]);
     horizontalGroupBox->setLayout(layout);
     connect(buttons[3], SIGNAL(clicked()), qApp, SLOT(quit()));
+    connect(buttons[0], SIGNAL(clicked()), this, SLOT(playDamier()));
 }
 
 void Menu::createImage()
@@ -64,4 +65,13 @@ void Menu::createImage()
    // QLabel *label = new QLabel(this);
     //label->setPixmap(QPixmap("checkersImg.jpg"));
     //gridGroupBox->setVisible(label);
+}
+
+void Menu::playDamier()
+{
+
+    damier = new Damier();
+    damier->show();
+    game = new Game(damier);
+    game->play();
 }

@@ -8,12 +8,11 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     MainWindow w;
-   // Menu menu;
-  //  menu.show();
+    Menu menu;
+    menu.show();
   //  w.show();
-    Damier d;
-    d.show();
-    Checkerboard c;
+    //Damier d;
+   // d.show();
 
     return app.exec();
 }

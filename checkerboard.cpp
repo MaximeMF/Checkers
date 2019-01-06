@@ -53,30 +53,30 @@ bool Checkerboard::canMove(int x, int y, int dx, int dy)
     bool ret = false;
     if(dynamic_cast<King*>(board[x][y])) { // si la piece est une dame
         if(abs(dx-x)==abs(dy-y)) // si le déplacement est bien en diagonale
-            if(board[dx][dy] != nullptr) // si la case ciblée est bien vide
+            if(board[dx][dy] == nullptr) // si la case ciblée est bien vide
                 for(int i=1; i<abs(dx-x); i++) { // si chaque case sur le trajet est bien vide
                     int deltaX = dx-x, deltaY = dy-y; //permet de vérifier le trajet selon la direction
                     if(deltaX<0 && deltaY<0) { //en bas à gauche
-                        if(board[x-i][y-i] != nullptr)
+                        if(board[x-i][y-i] == nullptr)
                             ret = true;
                     }
                     else if(deltaX>0 && deltaY<0) { //en bas à droite
-                        if(board[x-i][y+i] != nullptr)
+                        if(board[x-i][y+i] == nullptr)
                             ret = true;
                     }
                     else if(deltaX<0 && deltaY>0) { //en haut à gauche
-                        if(board[x+i][y-i] != nullptr)
+                        if(board[x+i][y-i] == nullptr)
                             ret = true;
                     }
                     else { //en haut à droite
-                        if(board[x+i][y+i] != nullptr)
+                        if(board[x+i][y+i] == nullptr)
                             ret = true;
                     }
                 }
     }
     else { // si la piece n'est pas une dame
-        if(dy-y==1 && abs(dx-x)==1) // si le déplacement est bien d'une case en diagonale en direction de l'autre bout du plateau
-            if(board[dx][dy] != nullptr) // si la case ciblée est bien vide
+        if(abs(dy-y)==1 && abs(dx-x)==1) // si le déplacement est bien d'une case en diagonale en direction de l'autre bout du plateau
+            if(board[dx][dy] == nullptr) // si la case ciblée est bien vide
                 ret = true;
     }
     return ret;

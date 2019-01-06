@@ -47,8 +47,8 @@ void Damier::createBoard()
             square->setIcon(*icon);
             square->setIconSize(QSize(85,85));
             square->show();
-            mainlayout->addWidget(square,i,j, Qt::AlignCenter);
-            square->setPos(i,j);
+            mainlayout->addWidget(square,j,i, Qt::AlignCenter);
+            square->setPos(j,i);
             connect(square, SIGNAL(clicked(int, int)), this, SLOT(clickedDamier(int, int)));
             mysquares.push_back(square);
             j=j+1;
@@ -65,6 +65,6 @@ void Damier::setSquare(int i,int j, QString nameIcon)
 {
     icon = new QIcon(nameIcon);
     Square *square;
-    square =dynamic_cast<Square*>(mainlayout->itemAtPosition(i,j)->widget());
+    square =dynamic_cast<Square*>(mainlayout->itemAtPosition(j,i)->widget());
     square->setIcon(*icon);
 }

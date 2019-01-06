@@ -2,6 +2,9 @@
 #define MENU_H
 
 #include <QDialog>
+#include "damier.h"
+#include "game.h"
+#include <QMessageBox>
 
 class QAction;
 class QDialogButtonBox;
@@ -19,12 +22,15 @@ class Menu : public QDialog
 
 public:
     Menu();
-
+public slots :
+    void playDamier();
 private:
     void createMenu();
     void createHorizontalGroupBox();
     void createImage();
     void createFormGroupBox();
+    Damier *damier;
+    Game *game;
 
     enum { NumGridRows = 3, NumButtons = 4 };
 
