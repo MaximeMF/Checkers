@@ -1,5 +1,5 @@
 #include "game.h"
-#include "wrongCase.h"
+#include "wrongcase.h"
 
 
 Game::Game(Damier *damier) : QObject(), player1(white), player2(black), checkerboard(){this->damier=damier;}
