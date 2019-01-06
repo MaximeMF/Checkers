@@ -7,17 +7,9 @@
 #include "checkerboard.h"
 #include "damier.h"
 
-class QAction;
-class QDialogButtonBox;
-class QGroupBox;
-class QLabel;
-class QLineEdit;
-class QMenu;
-class QMenuBar;
-class QPushButton;
-class QTextEdit;
 
-class Game
+
+class Game : public QObject
 {
     Q_OBJECT
 

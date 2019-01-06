@@ -6,8 +6,8 @@ class Player
 {
 public:
     Player(Color);
-    Color getColor();
-    int getPiecesNumber();
+    Color getColor() const;
+    int getPiecesNumber() const;
 private:
     const Color COLOR;
     int piecesNumber;

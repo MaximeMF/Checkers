@@ -1,6 +1,7 @@
 #include <QtWidgets>
 #include <iostream>
 #include "damier.h"
+#include <QDebug>
 
 
 Damier::Damier() :
@@ -48,24 +49,22 @@ void Damier::createBoard()
             square->show();
             mainlayout->addWidget(square,i,j, Qt::AlignCenter);
             square->setPos(i,j);
-            connect(square, SIGNAL(clicked(int x, int y)), this, SLOT(clickedDamier(int x, int y)));
+            connect(square, SIGNAL(clicked(int, int)), this, SLOT(clickedDamier(int, int)));
             mysquares.push_back(square);
             j=j+1;
         }
         i=i+1;
     }
-   /*setSquare(1,1,"caseBlanche.png");*/
+   setSquare(1,1,"caseBlanche.png");
 }
 
 void Damier::clickedDamier(int x, int y){
     emit clicked(x,y);
 }
-/*void Damier::setSquare(int i,int j, QString nameIcon)
+void Damier::setSquare(int i,int j, QString nameIcon)
 {
     icon = new QIcon(nameIcon);
     Square *square;
-    QWidget *lay;
-    lay =mainlayout->itemAtPosition(i,j)->widget();
-    square = mainlayout->takeAt(mainlayout->indexOf(lay));
-
-}*/
+    square =dynamic_cast<Square*>(mainlayout->itemAtPosition(i,j)->widget());
+    square->setIcon(*icon);
+}
