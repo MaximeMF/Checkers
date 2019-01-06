@@ -99,3 +99,7 @@ bool Checkerboard::isPiece(int x, int y)
 {
     return (board[x][y] != nullptr);
 }
+Color Checkerboard::getColorPiece(int x, int y)
+{
+    return(board[x][y]->getColor());
+}

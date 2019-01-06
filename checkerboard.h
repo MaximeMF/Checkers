@@ -14,6 +14,7 @@ public:
     bool canMove(int x, int y, int dx, int dy);
     void move(int x, int y, int dx, int dy);
     void remove(int x, int y);
+    Color getColorPiece(int x, int y);
 private:
     Piece* board[10][10];
     void init();

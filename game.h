@@ -7,14 +7,27 @@
 #include "checkerboard.h"
 #include "damier.h"
 
+class QAction;
+class QDialogButtonBox;
+class QGroupBox;
+class QLabel;
+class QLineEdit;
+class QMenu;
+class QMenuBar;
+class QPushButton;
+class QTextEdit;
+
 class Game
 {
+    Q_OBJECT
+
     public:
         Game();
         void play();
 
     public slots:
         void clicked(int x, int y);
+        void clicked2(int x, int y);
 
     private:
         const Player player1;
@@ -24,7 +37,7 @@ class Game
         int clickPosX;
         int clickPosY;
         Checkerboard checkerboard;
-        Damier damier;
+        Damier *damier;
         void changeTurn();
         void initialisation();
 };
