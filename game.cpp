@@ -58,8 +58,22 @@ void Game::clicked2(int dx, int dy){
     }
     else if(checkerboard.canMove(this->clickPosX, this->clickPosY, dx, dy)){
         checkerboard.move(this->clickPosX, this->clickPosY, dx, dy);
+        damier->setSquare(clickPosX, clickPosY, "caseNoire");
+        if((currentPlayer->getColor()) == white){
+            damier->setSquare(dx, dy, "Pblanc_Cnoire");
+        }
+        else{
+            damier->setSquare(dx, dy, "Pnoir_Cnoire");
+        }
+
         if(checkerboard.canPromote(dx,dy)){
             checkerboard.promotion(dx,dy);
+            if((currentPlayer->getColor()) == white){
+                damier->setSquare(dx, dy, "Pblanc_CnoireReine");
+            }
+            else{
+                damier->setSquare(dx, dy, "Pnoir_CnoireReine");
+            }
         }
         disconnect(damier, SIGNAL(clicked(int, int)), this, SLOT(clicked2(int, int)));
         connect(damier, SIGNAL(clicked(int, int)), this, SLOT(clicked(int, int)));
