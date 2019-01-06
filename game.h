@@ -25,7 +25,7 @@ class Game : public QObject
         const Player player1;
         const Player player2;
         const Player* currentPlayer;
-        boolean was_clicked;
+        bool was_clicked;
         int clickPosX;
         int clickPosY;
         Checkerboard checkerboard;
