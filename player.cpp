@@ -17,6 +17,11 @@ int Player::getPiecesNumber() const
 
 int Player::operator--()
 {
+    return --piecesNumber;
+}
+
+int Player::operator--(int)
+{
     piecesNumber--;
     return piecesNumber;
 }

@@ -9,6 +9,7 @@ public:
     Color getColor() const;
     int getPiecesNumber() const;
     int operator--();
+    int operator--(int);
 private:
     const Color COLOR;
     int piecesNumber;
