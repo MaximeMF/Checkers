@@ -14,3 +14,9 @@ int Player::getPiecesNumber() const
 {
     return piecesNumber;
 }
+
+int Player::operator--()
+{
+    piecesNumber--;
+    return piecesNumber;
+}

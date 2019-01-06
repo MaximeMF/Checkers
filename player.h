@@ -8,6 +8,7 @@ public:
     Player(Color);
     Color getColor() const;
     int getPiecesNumber() const;
+    int operator--();
 private:
     const Color COLOR;
     int piecesNumber;
