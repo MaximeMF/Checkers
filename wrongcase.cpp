@@ -6,5 +6,5 @@ WrongCase::WrongCase() : exception()
 }
 
 const char * WrongCase::what() const throw(){
-    return "Buy a mouse";
+    return "Parcours de tableau erroné";
 }
