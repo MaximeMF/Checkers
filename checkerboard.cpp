@@ -2,9 +2,6 @@
 #include <iostream>
 #include <QDebug>
 
-/**
- * @brief Checkerboard::Checkerboard
- */
 Checkerboard::Checkerboard()
 {
     init();
@@ -100,7 +97,7 @@ void Checkerboard::move(int x, int y, int dx, int dy)
 bool Checkerboard::canRemove(int x, int y, int dx, int dy, int* rx, int* ry)
 {
     if(isKing(x,y)) { // si la piece est une dame
-
+        // TODO
     }
     else { // si la piece n'est pas une dame
         if(abs(dx-x)==2 && abs(dy-y)==2) { // si le déplacement est de 2 cases en diagonale
