@@ -52,6 +52,7 @@ void Damier::createBoard()
             connect(square, SIGNAL(clicked(int, int)), this, SLOT(clickedDamier(int, int)));
             mysquares.push_back(square);
             j=j+1;
+
         }
         i=i+1;
     }

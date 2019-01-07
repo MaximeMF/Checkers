@@ -42,9 +42,9 @@ void Menu::createHorizontalGroupBox()
         layout->addWidget(buttons[0]);
         buttons[1] = new QPushButton("Play 1 players(Still in Dev)");
         layout->addWidget(buttons[1]);
-        buttons[2] = new QPushButton("Option");
+        buttons[2] = new QPushButton("Option(Still in dev");
         layout->addWidget(buttons[2]);
-        buttons[3] = new QPushButton("???");
+        buttons[3] = new QPushButton("???(Still in dev");
         buttons[3]->setStyleSheet("background-image: url('buttonRed.png');" );
         layout->addWidget(buttons[3]);
     horizontalGroupBox->setLayout(layout);

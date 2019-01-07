@@ -13,24 +13,30 @@ void Game::play()
     while(i<10){
         j=0;
         while(j<10){
-            if(checkerboard.isPiece(j,i)){
-                if((checkerboard.getColorPiece(j,i)) == white){
-                    damier->setSquare(j, i, "Pblanc_Cnoire.png");
-                    printf("piece at %d, %d \n",i,j);
+            try{
+                if(checkerboard.isPiece(j,i)){
+                    if((checkerboard.getColorPiece(j,i)) == white){
+                        damier->setSquare(j, i, "Pblanc_Cnoire.png");
+                        printf("piece at %d, %d \n",i,j);
+                    }
+                    else{
+                        damier->setSquare(j, i, "Pnoir_Cnoire.png");
+                    }
                 }
                 else{
-                    damier->setSquare(j, i, "Pnoir_Cnoire.png");
+                    if((i+j)%2==1){
+                        damier->setSquare(j,i, "caseBlanche.png");
+                     }
+                     else{
+                         damier->setSquare(j,i, "caseNoire.png");
+                     }
                 }
+                j=j+1;
+                if(j>9){throw WrongCase();}
             }
-            else{
-                if((i+j)%2==1){
-                    damier->setSquare(j,i, "caseBlanche.png");
-                 }
-                 else{
-                     damier->setSquare(j,i, "caseNoire.png");
-                 }
+            catch(WrongCase){
+                break;
             }
-            j=j+1;
         }
         i=i+1;
     }
