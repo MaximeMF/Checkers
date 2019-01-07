@@ -62,6 +62,22 @@ void Game::clicked(int y, int x){
             qDebug("on passe au deuxième clique !");
             this->clickPosX=x;
             this->clickPosY=y;
+            if(checkerboard.isKing(x,y)){
+                if((currentPlayer->getColor()) == white){
+                    damier->setSquare(x, y, "Pblanc_CnoireReine_Bleu.png");
+                }
+                else{
+                    damier->setSquare(x, y, "Pnoir_CnoireReine_Bleu.png");
+                }
+            }
+            else{
+                if((currentPlayer->getColor()) == white){
+                    damier->setSquare(x, y, "Pblanc_Cnoire_Bleu.png");
+                }
+                else{
+                    damier->setSquare(x, y, "Pnoir_Cnoire_Bleu.png");
+                }
+            }
             disconnect(damier, SIGNAL(clicked(int, int)), this, SLOT(clicked(int, int)));
             connect(this->damier, SIGNAL(clicked(int, int)), this, SLOT(clicked2(int, int)));
         }
@@ -77,9 +93,26 @@ void Game::clicked(int y, int x){
 void Game::clicked2(int dy, int dx){
     printf("t'as bien cliqué 2 fois connard");
     if(this->clickPosX==dx and this->clickPosY==dy){
+        if(checkerboard.isKing(dx,dy)){
+            if((currentPlayer->getColor()) == white){
+                damier->setSquare(dx, dy, "Pblanc_CnoireReine.png");
+            }
+            else{
+                damier->setSquare(dx, dy, "Pnoir_CnoireReine.png");
+            }
+        }
+        else{
+            if((currentPlayer->getColor()) == white){
+                damier->setSquare(dx, dy, "Pblanc_Cnoire.png");
+            }
+            else{
+                damier->setSquare(dx, dy, "Pnoir_Cnoire.png");
+            }
+        }
         disconnect(damier, SIGNAL(clicked(int, int)), this, SLOT(clicked2(int, int)));
         connect(damier, SIGNAL(clicked(int, int)), this, SLOT(clicked(int, int)));
     }
+
     else if(checkerboard.canMove(this->clickPosX, this->clickPosY, dx, dy)){
         printf("Et c'est un move reussi");
         checkerboard.move(this->clickPosX, this->clickPosY, dx, dy);

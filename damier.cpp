@@ -67,5 +67,8 @@ void Damier::setSquare(int i,int j, QString nameIcon)
     icon = new QIcon(nameIcon);
     Square *square;
     square =dynamic_cast<Square*>(mainlayout->itemAtPosition(j,i)->widget());
+    QIcon icon2;
+    icon2=square->icon();
     square->setIcon(*icon);
+    icon2.~QIcon();
 }

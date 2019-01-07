@@ -5,6 +5,9 @@
 #include "damier.h"
 #include "game.h"
 #include <QMessageBox>
+#include<array>
+#include<tuple>
+#include <map>
 
 class QAction;
 class QDialogButtonBox;
@@ -42,7 +45,8 @@ private:
     QTextEdit *bigEditor;
     QLabel *labels[NumGridRows];
     QLineEdit *lineEdits[NumGridRows];
-    QPushButton *buttons[NumButtons];
+    QPushButton *buttons;
+    std::map<int, QPushButton*> mapButtons;
     QDialogButtonBox *buttonBox;
 
     QMenu *fileMenu;

@@ -37,19 +37,21 @@ void Menu::createHorizontalGroupBox()
     horizontalGroupBox = new QGroupBox(tr("Horizontal layout"));
     QHBoxLayout *layout = new QHBoxLayout;
 
-
-        buttons[0] = new QPushButton("Play 2 players");
-        layout->addWidget(buttons[0]);
-        buttons[1] = new QPushButton("Play 1 players(Still in Dev)");
-        layout->addWidget(buttons[1]);
-        buttons[2] = new QPushButton("Option(Still in dev");
-        layout->addWidget(buttons[2]);
-        buttons[3] = new QPushButton("???(Still in dev");
-        buttons[3]->setStyleSheet("background-image: url('buttonRed.png');" );
-        layout->addWidget(buttons[3]);
-    horizontalGroupBox->setLayout(layout);
-    connect(buttons[3], SIGNAL(clicked()), qApp, SLOT(quit()));
-    connect(buttons[0], SIGNAL(clicked()), this, SLOT(playDamier()));
+        buttons = new QPushButton("Play 2 players");
+        layout->addWidget(buttons);
+        mapButtons.insert(pair<int, QPushButton*>(0, buttons));
+        buttons = new QPushButton("Play 1 players(Still in Dev)");
+        layout->addWidget(buttons);
+        mapButtons.insert(pair<int, QPushButton*>(1, buttons));
+        buttons = new QPushButton("Option(Still in dev");
+        layout->addWidget(buttons);
+        mapButtons.insert(pair<int, QPushButton*>(2, buttons));
+        buttons = new QPushButton("???(Still in dev)");
+        layout->addWidget(buttons);
+        mapButtons.insert(pair<int, QPushButton*>(3, buttons));
+        horizontalGroupBox->setLayout(layout);
+        connect(mapButtons.find(3)->second, SIGNAL(clicked()), qApp, SLOT(quit()));
+        connect(mapButtons.find(0)->second, SIGNAL(clicked()), this, SLOT(playDamier()));
 }
 
 void Menu::createImage()
