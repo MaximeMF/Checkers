@@ -1,5 +1,6 @@
 #include "checkerboard.h"
 #include <iostream>
+#include <QDebug>
 
 Checkerboard::Checkerboard()
 {
@@ -36,7 +37,7 @@ bool Checkerboard::canPromote(int x, int y)
     Color c = board[x][y]->getColor();
     if(c == white)
         y == 9 ? ret=true : ret=false;
-    else //if(c == black) ?
+    else
         y == 0 ? ret=true : ret=false;
     return ret;
 }
@@ -50,37 +51,51 @@ void Checkerboard::promotion(int x, int y)
 
 bool Checkerboard::canMove(int x, int y, int dx, int dy)
 {
-    bool ret = false;
-    if(dynamic_cast<King*>(board[x][y])) { // si la piece est une dame
-        if(abs(dx-x)==abs(dy-y)) // si le déplacement est bien en diagonale
-            if(board[dx][dy] == nullptr) // si la case ciblée est bien vide
-                for(int i=1; i<abs(dx-x); i++) { // si chaque case sur le trajet est bien vide
-                    int deltaX = dx-x, deltaY = dy-y; //permet de vérifier le trajet selon la direction
+    if(isKing(x,y)) { // si la piece est une dame
+        qDebug()<<"dame";
+        if(abs(dx-x)==abs(dy-y)) { // si le déplacement est bien en diagonale
+            qDebug()<<"dame diagonale";
+            if(board[dx][dy] == nullptr) { // si la case ciblée est bien vide
+                qDebug()<<"dame diagonale vide";
+                int deltaX = dx-x, deltaY = dy-y; //permet de vérifier le trajet selon la direction
+                for(int i=1; i<abs(deltaX); i++) { // si chaque case sur le trajet est bien vide
                     if(deltaX<0 && deltaY<0) { //en bas à gauche
-                        if(board[x-i][y-i] == nullptr)
-                            ret = true;
+                        qDebug()<<"dame diagonale vide basgauche "<<i;
+                        if(board[x-i][y-i] != nullptr)
+                            return false;
                     }
                     else if(deltaX>0 && deltaY<0) { //en bas à droite
-                        if(board[x-i][y+i] == nullptr)
-                            ret = true;
+                        qDebug()<<"dame diagonale vide basdroite "<<i;
+                        if(board[x-i][y+i] != nullptr)
+                            return false;
                     }
                     else if(deltaX<0 && deltaY>0) { //en haut à gauche
-                        if(board[x+i][y-i] == nullptr)
-                            ret = true;
+                        qDebug()<<"dame diagonale vide hautgauche "<<i;
+                        if(board[x+i][y-i] != nullptr)
+                            return false;
                     }
                     else { //en haut à droite
-                        if(board[x+i][y+i] == nullptr)
-                            ret = true;
+                        qDebug()<<"dame diagonale vide hautdroite "<<i;
+                        if(board[x+i][y+i] != nullptr)
+                            return false;
                     }
                 }
+                return true;
+            }
+        }
     }
     else { // si la piece n'est pas une dame
-        if(abs(dx-x)==1) // si le déplacement est bien d'une case sur la droite ou la gauche
-            if((board[x][y]->getColor()==white && dy-y==1) || (board[x][y]->getColor()==black && dy-y==-1)) // si le déplacement est bien d'une case vers le haut ou le bas selon la couleur de la pièce
+        qDebug()<<"piece";
+        if(abs(dx-x)==1) { // si le déplacement est bien d'une case sur la droite ou la gauche
+            qDebug()<<"piece unedg";
+            if((board[x][y]->getColor()==white && dy-y==1) || (board[x][y]->getColor()==black && dy-y==-1)) { // si le déplacement est bien d'une case vers le haut ou le bas selon la couleur de la pièce
+                qDebug()<<"piece unedg unebh";
                 if(board[dx][dy] == nullptr) // si la case ciblée est bien vide
-                    ret = true;
+                    return true;
+            }
+        }
     }
-    return ret;
+    return false;
 }
 
 void Checkerboard::move(int x, int y, int dx, int dy)
@@ -102,16 +117,10 @@ bool Checkerboard::isPiece(int x, int y)
 
 Color Checkerboard::getColorPiece(int x, int y)
 {
-    return(board[x][y]->getColor());
+    return (board[x][y]->getColor());
 }
 
 bool Checkerboard::isKing(int x, int y)
 {
-    if(dynamic_cast<King*>(board[x][y])){
-        return true;
-    }
-    else{
-        return false;
-    }
-    //return (dynamic_cast<King*>(board[x][y])!=nullptr);
+    return (dynamic_cast<King*>(board[x][y]) != nullptr);
 }
