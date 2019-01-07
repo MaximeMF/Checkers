@@ -75,9 +75,10 @@ bool Checkerboard::canMove(int x, int y, int dx, int dy)
                 }
     }
     else { // si la piece n'est pas une dame
-        if(abs(dy-y)==1 && abs(dx-x)==1) // si le déplacement est bien d'une case en diagonale en direction de l'autre bout du plateau
-            if(board[dx][dy] == nullptr) // si la case ciblée est bien vide
-                ret = true;
+        if(abs(dx-x)==1) // si le déplacement est bien d'une case sur la droite ou la gauche
+            if((board[x][y]->getColor()==white && dy-y==1) || (board[x][y]->getColor()==black && dy-y==-1)) // si le déplacement est bien d'une case vers le haut ou le bas selon la couleur de la pièce
+                if(board[dx][dy] == nullptr) // si la case ciblée est bien vide
+                    ret = true;
     }
     return ret;
 }
@@ -90,7 +91,7 @@ void Checkerboard::move(int x, int y, int dx, int dy)
 
 void Checkerboard::remove(int x, int y)
 {
-    delete board[x][y];
+    delete board[x][y]; // ?
     board[x][y] = nullptr;
 }
 
@@ -98,6 +99,7 @@ bool Checkerboard::isPiece(int x, int y)
 {
     return (board[x][y] != nullptr);
 }
+
 Color Checkerboard::getColorPiece(int x, int y)
 {
     return(board[x][y]->getColor());
