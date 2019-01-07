@@ -175,5 +175,5 @@ void Game::clicked2(int dy, int dx){
         QMessageBox::information(nullptr,"Wrong click","You cannot move to this case");
         //throw WrongCase();
     }
-    //damier->setScores(player1.getPiecesNumber(),player2.getPiecesNumber());
+    damier->setScores(player1.getPiecesNumber(),player2.getPiecesNumber());
 }

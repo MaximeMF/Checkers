@@ -10,9 +10,10 @@ QDialog()
     //this->setFixedSize(850,850);
     resize(850,850);
    // mainlayout = new Qmainlayout(this);
-   // fenetre = new QVBoxLayout(this);
-   // setLayout(fenetre);
-    mainlayout = new QGridLayout(this);
+    fenetre = new QVBoxLayout(this);
+    setLayout(fenetre);
+    mainlayout = new QGridLayout();
+    fenetre->addLayout(mainlayout);
     mainlayout->setObjectName(QStringLiteral("layout"));
     mainlayout->setContentsMargins(10,10,10,10);
     mainlayout->setColumnMinimumWidth(1,85);
@@ -24,9 +25,10 @@ QDialog()
     //layout->setMinimumSize(500,500);
     //layout->setMaximumSize(850,850);
     //setLayout(layout);
-   //  scoreWidget = new ScoreWidget(this);
-     //scoreWidget->setScore1(0);
-     //scoreWidget->setScore2(0);
+     scoreWidget = new ScoreWidget(this);
+     fenetre->addWidget(scoreWidget);
+     scoreWidget->setScore1(20);
+     scoreWidget->setScore2(20);
 
     createBoard();
 }

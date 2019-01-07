@@ -13,7 +13,7 @@ ScoreWidget::ScoreWidget(QWidget *parent) : QWidget(parent)
 
     layout->addWidget(this->score1);
     layout->addWidget(this->score2);
-    this->setStyleSheet("background-color:black;");
+    //this->setStyleSheet("background-color:black;");
 }
 
 ScoreWidget::~ScoreWidget() {
@@ -23,11 +23,11 @@ ScoreWidget::~ScoreWidget() {
 }
 
 void ScoreWidget::setScore1(int score) {
-    this->score1->setText("Player 1:" + QString::number(score));
+    this->score1->setText("Player 1:  " + QString::number(score));
 }
 
 void ScoreWidget::setScore2(int score) {
-    this->score2->setText("Player 2:" + QString::number(score));
+    this->score2->setText("Player 2:  " + QString::number(score));
 }
 
 void setScore1(int score);
