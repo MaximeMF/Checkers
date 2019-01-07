@@ -59,7 +59,7 @@ public:
     bool canMove(int x, int y, int dx, int dy);
 
     /**
-     * @brief move déplace une pièce d'une case à une autre
+     * @brief move réalise le déplacement d'une pièce d'une case à une autre.
      * @param x la position de départ en x
      * @param y la position de départ en y
      * @param dx la position d'arrivée en x
@@ -68,7 +68,7 @@ public:
     void move(int x, int y, int dx, int dy);
 
     /**
-     * @brief canRemove vérifie si une pièce peut manger une autre pièce
+     * @brief canRemove vérifie si une pièce peut manger une autre pièce.
      * @param x la position de départ en x
      * @param y la position de départ en y
      * @param dx la position d'arrivée en x
@@ -80,7 +80,7 @@ public:
     bool canRemove(int x, int y, int dx, int dy, int* rx, int* ry);
 
     /**
-     * @brief remove mange une pièce
+     * @brief remove fait manger une pièce à une autre.
      * @param x la position de départ en x
      * @param y la position de départ en y
      * @param dx la position d'arrivée en x
@@ -91,7 +91,7 @@ public:
     void remove(int x, int y, int dx, int dy, int rx, int ry);
 
     /**
-     * @brief getColorPiece récupère la couleur d'une pièce
+     * @brief getColorPiece récupère la couleur d'une pièce.
      * @param x la position en x
      * @param y la position en y
      * @return la couleur de la pièce
@@ -100,10 +100,13 @@ public:
 
 private:
 
-    Piece* board[10][10]; /** Tableau 2D représentant le damier */
+    /**
+     * @brief board Un tableau 2D représentant le damier.
+     */
+    Piece* board[10][10];
 
     /**
-     * @brief init permet d'initialiser le tableau
+     * @brief init permet d'initialiser le tableau.
      */
     void init();
 };
