@@ -104,7 +104,7 @@ void Checkerboard::move(int x, int y, int dx, int dy)
     board[x][y] = nullptr;
 }
 
-bool Checkerboard::canRemove(int x, int y, int dx, int dy)
+bool Checkerboard::canRemove(int x, int y, int dx, int dy, int* rx, int* ry)
 {
     if(isKing(x,y)) { // si la piece est une dame
         /*qDebug()<<"dame";
@@ -145,18 +145,22 @@ bool Checkerboard::canRemove(int x, int y, int dx, int dy)
                 int deltaX = dx-x, deltaY = dy-y; //permet de vérifier le trajet selon la direction
                 if(deltaX<0 && deltaY<0) { // en bas à gauche
                     if(board[x-1][y-1]!=nullptr && board[x-1][y-1]->getColor()!=board[x][y]->getColor()) // si la case est occupée par un ennemi
+                        *rx = x-1; *ry = y-1;
                         return true;
                 }
                 else if(deltaX>0 && deltaY<0) { //en bas à droite
                     if(board[x+1][y-1]!=nullptr && board[x+1][y-1]->getColor()!=board[x][y]->getColor()) // si la case est occupée par un ennemi
+                        *rx = x+1; *ry = y-1;
                         return true;
                 }
                 else if(deltaX<0 && deltaY>0) { //en haut à gauche
                     if(board[x-1][y+1]!=nullptr && board[x-1][y+1]->getColor()!=board[x][y]->getColor()) // si la case est occupée par un ennemi
+                        *rx = x-1; *ry = y+1;
                         return true;
                 }
                 else { //en haut à droite
                     if(board[x+1][y+1]!=nullptr && board[x+1][y+1]->getColor()!=board[x][y]->getColor()) // si la case est occupée par un ennemi
+                        *rx = x+1; *ry = y+1;
                         return true;
                 }
             }
