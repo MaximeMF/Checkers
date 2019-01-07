@@ -9,15 +9,7 @@
 #include<tuple>
 #include <map>
 
-class QAction;
-class QDialogButtonBox;
-class QGroupBox;
-class QLabel;
-class QLineEdit;
-class QMenu;
-class QMenuBar;
-class QPushButton;
-class QTextEdit;
+
 
 class Menu : public QDialog
 {

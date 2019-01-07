@@ -7,9 +7,7 @@
 Damier::Damier() :
 QDialog()
 {
-    //this->setFixedSize(850,850);
     resize(850,850);
-   // mainlayout = new Qmainlayout(this);
     fenetre = new QVBoxLayout(this);
     setLayout(fenetre);
     mainlayout = new QGridLayout();
@@ -22,13 +20,10 @@ QDialog()
     mainlayout->setRowMinimumHeight(1,85);
     mainlayout->setRowStretch(1,1);
     mainlayout->setColumnStretch(1,1);
-    //layout->setMinimumSize(500,500);
-    //layout->setMaximumSize(850,850);
-    //setLayout(layout);
-     scoreWidget = new ScoreWidget(this);
-     fenetre->addWidget(scoreWidget);
-     scoreWidget->setScore1(20);
-     scoreWidget->setScore2(20);
+    scoreWidget = new ScoreWidget(this);
+    fenetre->addWidget(scoreWidget);
+    scoreWidget->setScore1(20);
+    scoreWidget->setScore2(20);
 
     createBoard();
 }

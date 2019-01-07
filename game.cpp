@@ -49,11 +49,6 @@ void Game::changeTurn()
         currentPlayer = &player1;
 }
 
-void Game::initialisation()
-{
-
-}
-
 void Game::clicked(int y, int x){
     if(checkerboard.isPiece(x,y)){
         if(checkerboard.getColorPiece(x,y)== currentPlayer->getColor()){
