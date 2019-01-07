@@ -86,7 +86,7 @@ bool Checkerboard::canMove(int x, int y, int dx, int dy)
     }
     else { // si la piece n'est pas une dame
         qDebug()<<"piece";
-        if(abs(dx-x)==1) { // si le déplacement est bien d'une case sur la droite ou la gauche
+        if(abs(dx-x)==1) { // si le déplacement est d'une case sur la droite ou la gauche
             qDebug()<<"piece unedg";
             if((board[x][y]->getColor()==white && dy-y==1) || (board[x][y]->getColor()==black && dy-y==-1)) { // si le déplacement est bien d'une case vers le haut ou le bas selon la couleur de la pièce
                 qDebug()<<"piece unedg unebh";
@@ -104,10 +104,72 @@ void Checkerboard::move(int x, int y, int dx, int dy)
     board[x][y] = nullptr;
 }
 
-void Checkerboard::remove(int x, int y)
+bool Checkerboard::canRemove(int x, int y, int dx, int dy)
 {
-    delete board[x][y]; // ?
-    board[x][y] = nullptr;
+    if(isKing(x,y)) { // si la piece est une dame
+        /*qDebug()<<"dame";
+        if(abs(dx-x)==abs(dy-y) && abs(dx-x)>=2) { // si le déplacement est bien en diagonale et d'au moins 2 cases
+            qDebug()<<"dame diagonale2";
+            if(board[dx][dy] == nullptr) { // si la case ciblée est bien vide
+                qDebug()<<"dame diagonale2 vide";
+                int deltaX = dx-x, deltaY = dy-y; //permet de vérifier le trajet selon la direction
+                for(int i=1; i<abs(deltaX); i++) { // vérifie si une case sur le trajet est un ennemi
+                    if(deltaX<0 && deltaY<0) { //en bas à gauche
+                        qDebug()<<"dame diagonale2 vide basgauche "<<i;
+                        if(board[x-i][y-i] != nullptr)
+                            return false;
+                    }
+                    else if(deltaX>0 && deltaY<0) { //en bas à droite
+                        qDebug()<<"dame diagonale2 vide basdroite "<<i;
+                        if(board[x-i][y+i] != nullptr)
+                            return false;
+                    }
+                    else if(deltaX<0 && deltaY>0) { //en haut à gauche
+                        qDebug()<<"dame diagonale2 vide hautgauche "<<i;
+                        if(board[x+i][y-i] != nullptr)
+                            return false;
+                    }
+                    else { //en haut à droite
+                        qDebug()<<"dame diagonale2 vide hautdroite "<<i;
+                        if(board[x+i][y+i] != nullptr)
+                            return false;
+                    }
+                }
+                return true;
+            }
+        }*/
+    }
+    else { // si la piece n'est pas une dame
+        if(abs(dx-x)==2 && abs(dy-y)==2) { // si le déplacement est de 2 cases en diagonale
+            if(board[dx][dy] == nullptr) { // si la case ciblée est bien vide
+                int deltaX = dx-x, deltaY = dy-y; //permet de vérifier le trajet selon la direction
+                if(deltaX<0 && deltaY<0) { // en bas à gauche
+                    if(board[x-1][y-1]!=nullptr && board[x-1][y-1]->getColor()!=board[x][y]->getColor()) // si la case est occupée par un ennemi
+                        return true;
+                }
+                else if(deltaX>0 && deltaY<0) { //en bas à droite
+                    if(board[x+1][y-1]!=nullptr && board[x+1][y-1]->getColor()!=board[x][y]->getColor()) // si la case est occupée par un ennemi
+                        return true;
+                }
+                else if(deltaX<0 && deltaY>0) { //en haut à gauche
+                    if(board[x-1][y+1]!=nullptr && board[x-1][y+1]->getColor()!=board[x][y]->getColor()) // si la case est occupée par un ennemi
+                        return true;
+                }
+                else { //en haut à droite
+                    if(board[x+1][y+1]!=nullptr && board[x+1][y+1]->getColor()!=board[x][y]->getColor()) // si la case est occupée par un ennemi
+                        return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+void Checkerboard::remove(int x, int y, int dx, int dy, int rx, int ry)
+{
+    move(x, y, dx, dy);
+    delete board[rx][ry];
+    board[rx][ry] = nullptr;
 }
 
 bool Checkerboard::isPiece(int x, int y)
