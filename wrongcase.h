@@ -4,11 +4,22 @@
 
 using namespace std;
 
-
+/**
+ * @brief The WrongCase class exception lancée lorsque le programme essaye d'atteindre une case non-existante lors
+ *          de l'initialisation du damier dans Game. (Réalisé pour l'exigence "d'utilisation d'exception"
+ */
 class WrongCase : public exception
 {
     public :
+        /**
+         * @brief WrongCaseConstruit l'exception
+         */
         WrongCase();
+
+        /**
+         * @brief what méthode de l'exception
+         * @return un char*
+         */
         const char* what() const throw();
 };
 

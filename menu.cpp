@@ -7,11 +7,6 @@ Menu::Menu()
     createMenu();
     createHorizontalGroupBox();
     createImage();
-   // createFormGroupBox();
-
-    bigEditor = new QTextEdit;
-    bigEditor->setPlainText(tr("This widget takes up all the remaining space "
-                               "in the top-level layout."));
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMenuBar(menuBar);
     mainLayout->addWidget(horizontalGroupBox);
@@ -64,9 +59,6 @@ void Menu::createImage()
 
     layout->addWidget(label_img);
     gridGroupBox->setLayout(layout);
-   // QLabel *label = new QLabel(this);
-    //label->setPixmap(QPixmap("checkersImg.jpg"));
-    //gridGroupBox->setVisible(label);
 }
 
 void Menu::playDamier()
