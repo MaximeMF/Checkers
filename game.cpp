@@ -77,31 +77,31 @@ void Game::clicked2(int dy, int dx){
     else if(checkerboard.canMove(this->clickPosX, this->clickPosY, dx, dy)){
         printf("Et c'est un move reussi");
         checkerboard.move(this->clickPosX, this->clickPosY, dx, dy);
-        damier->setSquare(clickPosX, clickPosY, "caseNoire");
+        damier->setSquare(clickPosX, clickPosY, "caseNoire.png");
         if(checkerboard.isKing(dx,dy)){
             if((currentPlayer->getColor()) == white){
-                damier->setSquare(dx, dy, "Pblanc_CnoireReine");
+                damier->setSquare(dx, dy, "Pblanc_CnoireReine.png");
             }
             else{
-                damier->setSquare(dx, dy, "Pnoir_CnoireReine");
+                damier->setSquare(dx, dy, "Pnoir_CnoireReine.png");
             }
         }
         else{
             if((currentPlayer->getColor()) == white){
-                damier->setSquare(dx, dy, "Pblanc_Cnoire");
+                damier->setSquare(dx, dy, "Pblanc_Cnoire.png");
             }
             else{
-                damier->setSquare(dx, dy, "Pnoir_Cnoire");
+                damier->setSquare(dx, dy, "Pnoir_Cnoire.png");
             }
         }
 
         if(checkerboard.canPromote(dx,dy)){
             checkerboard.promotion(dx,dy);
             if((currentPlayer->getColor()) == white){
-                damier->setSquare(dx, dy, "Pblanc_CnoireReine");
+                damier->setSquare(dx, dy, "Pblanc_CnoireReine.png");
             }
             else{
-                damier->setSquare(dx, dy, "Pnoir_CnoireReine");
+                damier->setSquare(dx, dy, "Pnoir_CnoireReine.png");
             }
         }
         disconnect(damier, SIGNAL(clicked(int, int)), this, SLOT(clicked2(int, int)));
