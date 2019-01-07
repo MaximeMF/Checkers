@@ -22,9 +22,9 @@ class Game : public QObject
         void clicked2(int x, int y);
 
     private:
-        const Player player1;
-        const Player player2;
-        const Player* currentPlayer;
+        Player player1;
+        Player player2;
+        Player* currentPlayer;
         bool was_clicked;
         int clickPosX;
         int clickPosY;

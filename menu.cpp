@@ -46,7 +46,7 @@ void Menu::createHorizontalGroupBox()
         buttons = new QPushButton("Option(Still in dev");
         layout->addWidget(buttons);
         mapButtons.insert(pair<int, QPushButton*>(2, buttons));
-        buttons = new QPushButton("???(Still in dev)");
+        buttons = new QPushButton("?(Still in dev)");
         layout->addWidget(buttons);
         mapButtons.insert(pair<int, QPushButton*>(3, buttons));
         horizontalGroupBox->setLayout(layout);

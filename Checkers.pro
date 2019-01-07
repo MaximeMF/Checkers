@@ -36,7 +36,8 @@ SOURCES += \
     damier.cpp \
     square.cpp \
     mainwin.cpp \
-    wrongcase.cpp
+    wrongcase.cpp \
+    scorewidget.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -50,7 +51,8 @@ HEADERS += \
     damier.h \
     square.h \
     mainwin.h \
-    wrongcase.h
+    wrongcase.h \
+    scorewidget.h
 
 FORMS += \
         mainwindow.ui

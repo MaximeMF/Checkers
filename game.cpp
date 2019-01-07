@@ -17,7 +17,6 @@ void Game::play()
                 if(checkerboard.isPiece(j,i)){
                     if((checkerboard.getColorPiece(j,i)) == white){
                         damier->setSquare(j, i, "Pblanc_Cnoire.png");
-                        printf("piece at %d, %d \n",i,j);
                     }
                     else{
                         damier->setSquare(j, i, "Pnoir_Cnoire.png");
@@ -56,10 +55,8 @@ void Game::initialisation()
 }
 
 void Game::clicked(int y, int x){
-    qDebug("t'as bien cliqué connard");
     if(checkerboard.isPiece(x,y)){
         if(checkerboard.getColorPiece(x,y)== currentPlayer->getColor()){
-            qDebug("on passe au deuxième clique !");
             this->clickPosX=x;
             this->clickPosY=y;
             if(checkerboard.isKing(x,y)){
@@ -86,12 +83,12 @@ void Game::clicked(int y, int x){
     }
 
 
-  //  this->was_clicked=true;
 
 }
 
 void Game::clicked2(int dy, int dx){
-    printf("t'as bien cliqué 2 fois connard");
+    int rx=0;
+    int ry=0;
     if(this->clickPosX==dx and this->clickPosY==dy){
         if(checkerboard.isKing(dx,dy)){
             if((currentPlayer->getColor()) == white){
@@ -114,7 +111,6 @@ void Game::clicked2(int dy, int dx){
     }
 
     else if(checkerboard.canMove(this->clickPosX, this->clickPosY, dx, dy)){
-        printf("Et c'est un move reussi");
         checkerboard.move(this->clickPosX, this->clickPosY, dx, dy);
         damier->setSquare(clickPosX, clickPosY, "caseNoire.png");
         if(checkerboard.isKing(dx,dy)){
@@ -147,8 +143,37 @@ void Game::clicked2(int dy, int dx){
         connect(damier, SIGNAL(clicked(int, int)), this, SLOT(clicked(int, int)));
         changeTurn();
     }
+    else if(checkerboard.canRemove(this->clickPosX, this->clickPosY, dx, dy, &rx,&ry)){
+        checkerboard.remove(this->clickPosX, this->clickPosY, dx, dy, rx,ry);
+        if(currentPlayer == &player1)
+            player2--;
+        else
+            player1--;
+        damier->setSquare(clickPosX, clickPosY, "caseNoire.png");
+        damier->setSquare(rx, ry, "caseNoire.png");
+        if(checkerboard.isKing(dx,dy)){
+            if((currentPlayer->getColor()) == white){
+                damier->setSquare(dx, dy, "Pblanc_CnoireReine.png");
+            }
+            else{
+                damier->setSquare(dx, dy, "Pnoir_CnoireReine.png");
+            }
+        }
+        else{
+            if((currentPlayer->getColor()) == white){
+                damier->setSquare(dx, dy, "Pblanc_Cnoire.png");
+            }
+            else{
+                damier->setSquare(dx, dy, "Pnoir_Cnoire.png");
+            }
+        }
+        disconnect(damier, SIGNAL(clicked(int, int)), this, SLOT(clicked2(int, int)));
+        connect(damier, SIGNAL(clicked(int, int)), this, SLOT(clicked(int, int)));
+        changeTurn();
+    }
     else{
         QMessageBox::information(nullptr,"Wrong click","You cannot move to this case");
         //throw WrongCase();
     }
+    //damier->setScores(player1.getPiecesNumber(),player2.getPiecesNumber());
 }

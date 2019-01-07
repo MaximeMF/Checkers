@@ -10,6 +10,8 @@ QDialog()
     //this->setFixedSize(850,850);
     resize(850,850);
    // mainlayout = new Qmainlayout(this);
+   // fenetre = new QVBoxLayout(this);
+   // setLayout(fenetre);
     mainlayout = new QGridLayout(this);
     mainlayout->setObjectName(QStringLiteral("layout"));
     mainlayout->setContentsMargins(10,10,10,10);
@@ -22,6 +24,10 @@ QDialog()
     //layout->setMinimumSize(500,500);
     //layout->setMaximumSize(850,850);
     //setLayout(layout);
+   //  scoreWidget = new ScoreWidget(this);
+     //scoreWidget->setScore1(0);
+     //scoreWidget->setScore2(0);
+
     createBoard();
 }
 
@@ -71,4 +77,9 @@ void Damier::setSquare(int i,int j, QString nameIcon)
     icon2=square->icon();
     square->setIcon(*icon);
     icon2.~QIcon();
+}
+
+void Damier::setScores(int p1, int p2){
+    scoreWidget->setScore1(p1);
+    scoreWidget->setScore2(p2);
 }
