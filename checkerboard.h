@@ -14,7 +14,8 @@ public:
     void promotion(int x, int y);
     bool canMove(int x, int y, int dx, int dy);
     void move(int x, int y, int dx, int dy);
-    void remove(int x, int y);
+    bool canRemove(int x, int y, int dx, int dy);
+    void remove(int x, int y, int dx, int dy, int rx, int ry);
     Color getColorPiece(int x, int y);
 private:
     Piece* board[10][10];
