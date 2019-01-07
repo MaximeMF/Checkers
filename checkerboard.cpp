@@ -85,7 +85,6 @@ bool Checkerboard::canMove(int x, int y, int dx, int dy)
 void Checkerboard::move(int x, int y, int dx, int dy)
 {
     board[dx][dy] = board[x][y];
-    delete board[x][y];
     board[x][y] = nullptr;
 }
 
@@ -102,4 +101,15 @@ bool Checkerboard::isPiece(int x, int y)
 Color Checkerboard::getColorPiece(int x, int y)
 {
     return(board[x][y]->getColor());
+}
+
+bool Checkerboard::isKing(int x, int y)
+{
+    if(dynamic_cast<King*>(board[x][y])){
+        return true;
+    }
+    else{
+        return false;
+    }
+    //return (dynamic_cast<King*>(board[x][y])!=nullptr);
 }

@@ -78,11 +78,21 @@ void Game::clicked2(int dy, int dx){
         printf("Et c'est un move reussi");
         checkerboard.move(this->clickPosX, this->clickPosY, dx, dy);
         damier->setSquare(clickPosX, clickPosY, "caseNoire");
-        if((currentPlayer->getColor()) == white){
-            damier->setSquare(dx, dy, "Pblanc_Cnoire");
+        if(checkerboard.isKing(dx,dy)){
+            if((currentPlayer->getColor()) == white){
+                damier->setSquare(dx, dy, "Pblanc_CnoireReine");
+            }
+            else{
+                damier->setSquare(dx, dy, "Pnoir_CnoireReine");
+            }
         }
         else{
-            damier->setSquare(dx, dy, "Pnoir_Cnoire");
+            if((currentPlayer->getColor()) == white){
+                damier->setSquare(dx, dy, "Pblanc_Cnoire");
+            }
+            else{
+                damier->setSquare(dx, dy, "Pnoir_Cnoire");
+            }
         }
 
         if(checkerboard.canPromote(dx,dy)){
