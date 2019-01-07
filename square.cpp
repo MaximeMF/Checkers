@@ -8,7 +8,6 @@ Square::Square(QWidget* parent,int posX, int posY)
 Square::~Square() {}
 
 void Square::mousePressEvent(QMouseEvent* event) {
-    printf("t'as bien cliqué le bouton connard \n");
     emit clicked(posX, posY);
     qDebug()<<posX<<posY;
 
