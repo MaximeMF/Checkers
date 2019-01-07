@@ -9,7 +9,7 @@
 
 
 /**
- * @brief The Game class permet de relier la logique au graphisme
+ * @brief La classe Game permet de relier la logique au graphisme.
  */
 class Game : public QObject
 {
@@ -23,7 +23,7 @@ class Game : public QObject
         Game(Damier *damier);
 
         /**
-         * @brief play lance une partie
+         * @brief play lance une partie.
          */
         void play();
 
@@ -54,32 +54,32 @@ class Game : public QObject
         Player player2;
 
         /**
-         * @brief currentPlayer le joueur à qui c'est le tour de jouer
+         * @brief currentPlayer le joueur à qui c'est le tour de jouer.
          */
         Player* currentPlayer;
 
         /**
-         * @brief clickPosX la position de la pièce selectionnée en x
+         * @brief clickPosX la position de la pièce selectionnée en x.
          */
         int clickPosX;
 
         /**
-         * @brief clickPosY la position de la pièce selectionnée en y
+         * @brief clickPosY la position de la pièce selectionnée en y.
          */
         int clickPosY;
 
         /**
-         * @brief checkerboard Déclaration d'un board logique
+         * @brief checkerboard Déclaration d'un board logique.
          */
         Checkerboard checkerboard;
 
         /**
-         * @brief damier Déclaration d'un damier logique
+         * @brief damier Déclaration d'un damier logique.
          */
         Damier *damier;
 
         /**
-         * @brief changeTurn change le 'currentPlayer'
+         * @brief changeTurn change le 'currentPlayer'.
          */
         void changeTurn();
 

@@ -10,24 +10,61 @@
 #include <QLabel>
 #include <QTimer>
 
-
-class Square : public QPushButton {
-
+/**
+ * @brief La classe Square représente une case du damier.
+ */
+class Square : public QPushButton
+{
     Q_OBJECT
 
-    public:
-        int posX;
-        int posY;
-        Square(QWidget* parent, int posX=-1, int posY=-1);
-        ~Square();
-        void setPos(int x, int y);
+public:
 
+    /**
+     * @brief posX la position en x de la case.
+     */
+    int posX;
 
-    signals:
-        void clicked(int posX, int posY);
+    /**
+     * @brief posY la position en y de la case.
+     */
+    int posY;
 
-    protected:
-        void mousePressEvent(QMouseEvent* event);
+    /**
+     * @brief Square Construit la case.
+     * @param parent le QWidget parent
+     * @param posX la position en x
+     * @param posY la position en y
+     */
+    Square(QWidget* parent, int posX=-1, int posY=-1);
+
+    /**
+     * @brief ~Square détruit la case.
+     */
+    ~Square();
+
+    /**
+     * @brief setPos Détermine la position d'une case.
+     * @param x la position en x
+     * @param y la position en y
+     */
+    void setPos(int x, int y);
+
+signals:
+
+    /**
+     * @brief clicked est un signal émis lorsque la case est cliquée.
+     * @param x la position en x de la case
+     * @param y la position en y de la case
+     */
+    void clicked(int posX, int posY);
+
+protected:
+
+    /**
+     * @brief mousePressEvent L'événèment déclenché lorsque la case est cliquée.
+     * @param event l'évènement
+     */
+    void mousePressEvent(QMouseEvent* event);
 
 };
 
